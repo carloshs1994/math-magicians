@@ -1,5 +1,11 @@
 # Hi there 👋🏻 
 
+## Sass
+
+The project was built using Sass. The only difference was that we needed to add an additional loader to React, but the result is overall the same (A CSS output). It has the same dynamic response, it's just that the output looks more organized.
+
+## Now into the project...
+
 ### Changes implemented in "set-up" branch 
 
 - ✅  My code follows the style guidelines of this project.
