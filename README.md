@@ -11,7 +11,7 @@
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://carloshs1994.github.io/math-magicians/)
 
 
 ## Getting Started
