@@ -1,48 +1,34 @@
 import React from 'react';
 
-// export default class Calculator extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
+export default class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.arrOfValues = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
+  }
 
-//   render() {
-//     return (
-//       <section className="calculator">
-//         <h1>
-//           Hello
-//           {this.props.name}
-//           !
-//         </h1>
-//       </section>
-//     );
-//   }
-// }
+  PrintButtons = ({ arr }) => arr.map((value) => this.CalculatorButton(value));
 
-const Calculator = () => (
-  <section className="calculator">
-    <div className="calculator-screen">
-      <p>0</p>
-    </div>
-    <button type="button">AC</button>
-    <button type="button">+/-</button>
-    <button type="button">%</button>
-    <button className="calculator-button-operation" type="button">+</button>
-    <button type="button">7</button>
-    <button type="button">8</button>
-    <button type="button">9</button>
-    <button className="calculator-button-operation" type="button">x</button>
-    <button type="button">4</button>
-    <button type="button">5</button>
-    <button type="button">6</button>
-    <button className="calculator-button-operation" type="button">-</button>
-    <button type="button">1</button>
-    <button type="button">2</button>
-    <button type="button">3</button>
-    <button className="calculator-button-operation" type="button">+</button>
-    <button className="calculator-button-0" type="button">0</button>
-    <button type="button">.</button>
-    <button className="calculator-button-operation" type="button">=</button>
-  </section>
-);
+  CalculatorButton = (value) => {
+    if (value === '0') {
+      return (<button className="calculator-button-0" key={value} type="button">{value}</button>);
+    } if (value === '÷'
+    || value === 'x'
+    || value === '-'
+    || value === '+'
+    || value === '=') {
+      return (<button className="calculator-button-operation" key={value} type="button">{value}</button>);
+    }
+    return (<button key={value} type="button">{value}</button>);
+  };
 
-export default Calculator;
+  render() {
+    return (
+      <section className="calculator">
+        <div className="calculator-screen">
+          <p>0</p>
+        </div>
+        <this.PrintButtons arr={this.arrOfValues} />
+      </section>
+    );
+  }
+}
