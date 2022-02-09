@@ -1,8 +1,9 @@
 import React from 'react';
-import calculate from '../logic/calculate';
+import { calculate, isNumber } from '../logic/calculate';
 
 export default class Calculator extends React.Component {
-  FirstObject = {
+  DataObject = {
+    total: '0',
     next: null,
     operation: null,
   };
@@ -10,17 +11,24 @@ export default class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.arrOfValues = ['AC', '+/-', '%', '÷', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
-    this.state = { total: '0' };
+    this.state = {
+      screen: '0',
+    };
   }
 
   PrintButtons = ({ arr }) => arr.map((value) => this.CalculatorButton(value));
 
   PressButton = ({ target }) => {
-    const ResultObj = calculate({ total: `${target.innerText}`, ...this.FirstObject }, `${target.innerText}`);
-    this.FirstObject.next = ResultObj.next;
-    this.FirstObject.operation = ResultObj.operation;
-    console.log(target.innerText, this.FirstObject);
-    console.log(ResultObj);
+    this.DataObject = calculate(this.DataObject, `${target.innerText}`);
+    if (isNumber(target.innerText)
+    || target.innerText === '.'
+    || target.innerText === '+/-') {
+      this.setState({ screen: this.DataObject.next });
+    } else if (target.innerText === 'AC') {
+      this.setState({ screen: '0' });
+    } else {
+      this.setState({ screen: this.DataObject.total });
+    }
   };
 
   CalculatorButton = (value) => {
@@ -37,11 +45,11 @@ export default class Calculator extends React.Component {
   };
 
   render() {
-    const { total } = this.state;
+    const { screen } = this.state;
     return (
       <section className="calculator">
         <div className="calculator-screen">
-          <p>{total}</p>
+          <p>{screen}</p>
         </div>
         <this.PrintButtons arr={this.arrOfValues} />
       </section>
