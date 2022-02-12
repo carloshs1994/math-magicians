@@ -6,7 +6,7 @@
 
 ## Built With
 
-- React
+- React, SASS
 - Visual Studio Code.
 
 ## Live Demo
