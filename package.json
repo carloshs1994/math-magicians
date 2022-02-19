@@ -1,6 +1,9 @@
 {
   "name": "math-magicians",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.x"
+  },
   "homepage": "https://carloshs1994.github.io/math-magicians",
   "private": true,
   "dependencies": {
