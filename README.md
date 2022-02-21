@@ -9,10 +9,11 @@
 - React, SASS
 - Visual Studio Code.
 
-## Live Demo
+## Live Demos
 
-[Live Demo Link](https://carloshs1994.github.io/math-magicians/)
-
+[Live Demo Link github](https://carloshs1994.github.io/math-magicians/)
+[Live Demo Link heroku](https://carlos-math-magicians.herokuapp.com/)
+[Live Demo Link netlify](https://goofy-swartz-f4e56f.netlify.app/)
 
 ## Getting Started
 
